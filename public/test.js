@@ -7,6 +7,8 @@ var $noteList = $(".list-container .list-group");
 // activeNote is used to keep track of the note in the textarea
 var activeNote = {};
 
+console.log("is online");
+
 // A function for getting all notes from the db
 var getNotes = function() {
   return $.ajax({
@@ -128,6 +130,7 @@ var renderNoteList = function(notes) {
 // Gets notes from the db and renders them to the sidebar
 var getAndRenderNotes = function() {
   return getNotes().then(function(data) {
+    console.log(data);
     renderNoteList(data);
   });
 };

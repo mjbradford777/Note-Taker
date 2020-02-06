@@ -8,6 +8,8 @@ app.use(express.json());
 
 // require("./apiRoutes")(app);
 require("./htmlRoutes")(app);
+require("./apiRoutes")(app);
+
 
 app.listen(PORT, function() {
     console.log(`App listening on PORT: ${PORT}`);
