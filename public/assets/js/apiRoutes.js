@@ -21,14 +21,14 @@ module.exports = function(app) {
     });
 
     app.delete(`/api/notes/:id`, function(req, res) {
-      console.log(req.body);
-      noteData.splice(req.body.id, 1);
+      let id = req.params.id;
+      noteData.splice(id, 1);
       fs.writeFile('../../../db/db.json', JSON.stringify(noteData), (err) => {
         if (err) throw err;
         console.log('The "data to append" was appended to file!');
       });
       for (let i = 0; i < noteData.length; i++) {
-        nodeData[i].id = i;
+        noteData[i].id = i;
       }
       fs.writeFile('../../../db/db.json', JSON.stringify(noteData), (err) => {
         if (err) throw err;
