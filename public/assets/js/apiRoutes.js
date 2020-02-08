@@ -2,11 +2,13 @@ const path = require('path');
 const fs = require('fs');
 const noteData = require('../../../db/db.json');
 
-module.exports = function(app) {  
+module.exports = function(app) { 
+    // GET method for retrieving existing notes 
     app.get("/api/notes", function(req, res) {
       res.json(noteData);
     });
 
+    // POST method for adding new notes
     app.post("/api/notes", function(req, res) {
       console.log(req.body);
       console.log(noteData.length);
@@ -20,6 +22,7 @@ module.exports = function(app) {
       res.json(noteData);
     });
 
+    // DELETE method for removing unneeded notes
     app.delete(`/api/notes/:id`, function(req, res) {
       let id = req.params.id;
       noteData.splice(id, 1);
