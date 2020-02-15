@@ -23,7 +23,7 @@ module.exports = function(app) {
     });
   
     // Setting default path
-    app.get("*", function(req, res) {
-      res.sendFile(path.join(__dirname, "../../index.html"));
-    });
+    // app.get("*", function(req, res) {
+    //   res.sendFile(path.join(__dirname, "../../index.html"));
+    // });
   };
